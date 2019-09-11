@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { ImagesSubscriber, useImagesStore } from "./stores/Images";
 import PhotoCard from "./components/PhotoCard";
-
+import "./PhotoCardq.scss";
 const Home = props => {
   const [images,actions] = useImagesStore();
   return (
