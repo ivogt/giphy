@@ -1,6 +1,6 @@
 import React from "react";
 import "./Nav.scss";
-
+import { Link } from "react-router-dom";
 const links = [
   { href: "https://www.linkedin.com/in/ivogtodorov/", label: "Ivo Todorov" },
   { href: "https://github.com/ivogt/showcase-react", label: "GitHub" }
@@ -13,9 +13,8 @@ const Nav = () => (
   <nav>
     <ul>
       <li>
-        <a href="/">Home</a>
-        <a  href="/giphy" style={{ marginLeft: "10px" }}>Giphy</a>
-        <a  href="/readme" style={{ marginLeft: "10px" }}>ReadMe</a>
+        <Link to="/">Home</Link>
+        <Link  to="/photos" style={{ marginLeft: "10px" }}>Photos</Link>
       </li>
       {links.map(({ key, href, label }) => (
         <li key={key}>
