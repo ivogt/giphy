@@ -19,7 +19,7 @@ const Home = props => {
                   <Search />
                 </p>
                 <ListContainer />
-                <LoadingSubscriber>{loading => <Spinner />}</LoadingSubscriber>
+                <LoadingSubscriber>{loading =>loading &&  (<Spinner />)}</LoadingSubscriber>
               </div>
             </ImagesContainer>
           )}
