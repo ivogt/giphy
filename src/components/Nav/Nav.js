@@ -18,7 +18,7 @@ const Nav = () => (
       </li>
       {links.map(({ key, href, label }) => (
         <li key={key}>
-          <a href={href} target="_blank">
+          <a href={href} target="_blank" rel="noopener noreferrer">
             {label}
           </a>
         </li>

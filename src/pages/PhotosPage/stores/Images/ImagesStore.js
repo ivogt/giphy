@@ -1,15 +1,16 @@
-import { createStore, createSubscriber, createHook } from "react-sweet-state";
-import Actions from "./actions";
+import { createStore } from 'react-sweet-state';
+import Actions from './actions';
 
 const Store = createStore({
   // optional, mostly used for easy debugging
-  name: "counter",
+  name: 'GiphyImages',
   // value of the store on initialisation
   initialState: {
-    data: [],
+    loading: false,
+    data: []
   },
   // actions that trigger store mutation
-  actions:Actions
+  actions: Actions
 });
 
 export default Store;

@@ -3,9 +3,9 @@ import "./PhotoCard.scss";
 import cropText from "./utils/cropText";
 
 
-const Card = ({ key, media, title, link, author, tags }) => {
+const Card = ({  media, title, link, author, tags }) => {
   return (
-    <div key={key} className="card">
+    <div className="card">
       <div className="imgCtnr">
         <img src={media.m} />
       </div>
