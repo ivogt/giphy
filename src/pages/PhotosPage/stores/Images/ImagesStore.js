@@ -7,7 +7,9 @@ const Store = createStore({
   // value of the store on initialisation
   initialState: {
     loading: false,
-    data: []
+    data: [],
+    page:0,
+    q:'kittens'
   },
   // actions that trigger store mutation
   actions: Actions

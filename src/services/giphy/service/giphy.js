@@ -8,10 +8,14 @@ const mapImages = (images)=>{
     profile_url: user.profile_url
   }))
 }
+const DefaultOptions = { q : '', limit : 12, offset : 0, rating : 'G', lang : 'en' };
+
 export default (get, ApiKey) => ({
-  get: async ({ q = 'k', limit = 10, offset = 0, rating = 'G', lang = 'en' }={}) => {
+  get: async ({page=1,q}) => {
+    console.log({page,q});
+    var offset = DefaultOptions.limit * ( page -1 )
     const {data} = await get('gifs/search', {
-      params: { q, limit, offset, rating, lang, api_key: ApiKey }
+      params: { ...DefaultOptions, api_key: ApiKey ,offset , q:escape(q) }
     });
     return mapImages(data.data);
   }

@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { ServiceContainer, ServiceSubscriber } from '../../stores/Service';
-import {
-  LoadingSubscriber,
-  ImagesSubscriber,
-  ImagesContainer
-} from './stores/Images';
+import { LoadingSubscriber, ImagesContainer } from './stores/Images';
 
-import PhotoCard from './components/PhotoCard';
 import Spinner from '../../components/Spinner';
+import ListContainer from './components/ListPhotosContainer';
+import Search from './components/Search';
 
 const Home = props => {
   return (
@@ -18,15 +15,11 @@ const Home = props => {
             <ImagesContainer api={service}>
               <div className="hero">
                 <h1 className="title">Giphy Photo Stream</h1>
-                <p className="description" />
-                <ImagesSubscriber>
-                  {images => {
-                    return images.map(img=><PhotoCard key={img.id} {...img}/>);
-                  }}
-                </ImagesSubscriber>
-                <LoadingSubscriber>
-                  {(loading)=> loading ? <Spinner /> : ""}
-                </LoadingSubscriber>
+                <p className="description">
+                  <Search />
+                </p>
+                <ListContainer />
+                <LoadingSubscriber>{loading => <Spinner />}</LoadingSubscriber>
               </div>
             </ImagesContainer>
           )}

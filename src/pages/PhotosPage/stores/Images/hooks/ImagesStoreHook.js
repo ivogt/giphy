@@ -1,7 +1,5 @@
 import { createHook } from "react-sweet-state";
-import Store from "../ImagesStore";
-import Selector from "../subscribers/ImagesSubscriber";
-
+import Store from "../index";
 export default createHook(Store, {
-  selector: Selector
+  selector: ()=>null // prevent rerender
 });
