@@ -15,7 +15,6 @@ export default ({children,onBottom=noop}) => {
     }, 20);
 
   useEffect(() => {
-    trackScrolling();
     document.addEventListener('scroll', trackScrolling, false);
     return () => {
       document.removeEventListener('scroll', trackScrolling, false);

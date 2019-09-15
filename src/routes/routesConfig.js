@@ -1,3 +1,4 @@
+import React from 'react';
 import HomePage from '../pages/HomePage';
 import PhotosPage from '../pages/PhotosPage';
 
@@ -9,7 +10,12 @@ export default {
   },
   photos: {
     path: '/photos',
-    component: PhotosPage,
+    component: props => <PhotosPage {...props} defaultQuery="kittens" />,
+    exact: true
+  },
+  photos2: {
+    path: '/another-photos',
+    component: props => <PhotosPage {...props} defaultQuery="puppies" />,
     exact: true
   }
 };

@@ -1,35 +1,61 @@
 import React from 'react';
-import { LoadingSubscriber, ImagesContainer, ImagesSubscriber } from './store';
+import {
+  ViewToggleContainer,
+  LoadingSubscriber,
+  ImagesContainer,
+  ImagesSubscriber,
+  ViewSubscriber
+} from './store';
 
 import Spinner from '../../components/Spinner';
 import Search from './components/Search';
 import PhotoCard from './components/PhotoCard';
+import ViewSwitcher from './components/ViewSwitcher';
 import InfiniteScroll from '../../components/InfiniteScroll';
+import './PhotosPage.scss';
 
-const Home = () => {
+const Home = ({ location , defaultQuery }) => {
+  /* this page renders only once */
   return (
-    <ImagesContainer>
-      <div className="hero">
-        <h1 className="title">Giphy Photo Stream</h1>
-        <Search />
-        <div className="row">
-          <ImagesSubscriber>
-            {(images, actions) => (
-              <InfiniteScroll onBottom={actions.load}>
-                {images.map((img, i) => (
-                  <PhotoCard key={`${i}` + img.id} {...img} />
-                ))}
-              </InfiniteScroll>
+    <ViewToggleContainer isGlobal>
+      {/* remembers state across pages */}
+      <ImagesContainer scope={`context-${location.pathname}`} query={defaultQuery }>
+        {/* remembers state for this page only */}
+        <div className="hero">
+          <h1 className="title">Giphy Photo Stream</h1>
+          <ViewSwitcher />
+          <Search />
+          <ViewSubscriber>
+            {/* updates only if view changes */}
+            {([{ view }, isLarge , isAnimating]) => (
+              <div className={`row ${view}`}>
+                <ImagesSubscriber>
+                  {/* only hot section updates with ImagesStore  */}
+                  {({images}, actions) => (
+                    <InfiniteScroll onBottom={actions.load}>
+                      {images.map((img, i) => (
+                        <PhotoCard
+                          key={`${i}${img.id}`}
+                          {...img}
+                          useLarge={isLarge}
+                          animate={isAnimating}
+                        />
+                      ))}
+                    </InfiniteScroll>
+                  )}
+                </ImagesSubscriber>
+              </div>
             )}
-          </ImagesSubscriber>
+          </ViewSubscriber>
+
+          <div className="loading">
+            <LoadingSubscriber>
+              {loading => loading && <Spinner />}
+            </LoadingSubscriber>
+          </div>
         </div>
-        <div className="loading">
-          <LoadingSubscriber>
-            {loading => loading && <Spinner />}
-          </LoadingSubscriber>
-        </div>
-      </div>
-    </ImagesContainer>
+      </ImagesContainer>
+    </ViewToggleContainer>
   );
 };
 

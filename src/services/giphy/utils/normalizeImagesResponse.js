@@ -5,7 +5,11 @@ const mapImages = images => {
     title,
     type,
     media: {
-      m: images.fixed_height.url
+      animate: { m: images.fixed_height.url, l: images['downsized_large'].url },
+      still: {
+        m: images.fixed_width_still.url,
+        l: images['480w_still'].url
+      }
     },
     author: user.display_name,
     profile_url: user.profile_url

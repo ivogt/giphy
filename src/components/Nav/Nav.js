@@ -8,6 +8,7 @@ const Nav = () => (
       <li>
         <NavLink to="/" exact>Home</NavLink>
         <NavLink  to="/photos" style={{ marginLeft: "10px" }}>Photos</NavLink>
+        <NavLink  to="/another-photos" style={{ marginLeft: "10px" }}>Antother Photos</NavLink>
       </li>
 
     </ul>

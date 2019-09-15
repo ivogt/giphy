@@ -1,3 +1,15 @@
 .loading {
   min-height: 50px;
 }
+
+.row {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 80px;
+  padding-bottom: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  &.COLMN_SINGLE {
+    max-width: 585px;
+  }
+}

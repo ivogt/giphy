@@ -1,1 +1,1 @@
-export default (state, props) => state.data;
+export default ({data,pagination}, props) => ({images:data,pagination});
