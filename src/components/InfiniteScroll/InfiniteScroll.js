@@ -1,7 +1,8 @@
-import { useEffect, useRef } from 'react';
+import React,{ useEffect, useRef } from 'react';
 import Debounce from '../../utils/debounce';
+const noop = ()=>{};
 
-export default cb => {
+export default ({children,onBottom=noop}) => {
   const ref = useRef(),
     isBottom = () => {
       return (
@@ -10,8 +11,8 @@ export default cb => {
       );
     },
     trackScrolling = Debounce(e => {
-      if (!!cb && ref.current && isBottom()) return cb();
-    }, 100);
+      if (ref.current && isBottom()) return onBottom();
+    }, 20);
 
   useEffect(() => {
     trackScrolling();
@@ -21,5 +22,5 @@ export default cb => {
     };
   });
 
-  return ref;
+  return (<div ref={ref}>{children}</div>);
 };

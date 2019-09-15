@@ -1,1 +1,1 @@
-export default (state, props) => state.q;
+export default ({ q, pagination }, props) => ({ q, pagination });

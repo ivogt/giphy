@@ -9,7 +9,10 @@ const Store = createStore({
     loading: false,
     data: [],
     page:0,
-    q:'kittens'
+    q:'kittens',
+    pagination: {
+      "total_count" : 0
+    }
   },
   // actions that trigger store mutation
   actions: Actions
