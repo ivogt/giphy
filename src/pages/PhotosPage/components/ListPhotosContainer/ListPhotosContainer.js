@@ -1,12 +1,11 @@
 import React from 'react';
-import { ImagesSubscriber, useImagesStore } from '../../stores/Images';
+import { ImagesSubscriber, useImagesStore } from '../../store';
 import PhotoCard from '../PhotoCard';
 import useInfiniteScroll from '../../../../components/useInfiniteScroll';
 
 const ListContainer = () => {
   const [, { load }] = useImagesStore(); // loads only actions
   const ref = useInfiniteScroll(load);
-  console.log('ListContainer');
   return (
     <div ref={ref} className="row">
       <ImagesSubscriber>
