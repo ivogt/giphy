@@ -1,1 +1,1 @@
-export { default as GiphyService } from './giphy';
+export { default as GiphyService } from './Giphy';

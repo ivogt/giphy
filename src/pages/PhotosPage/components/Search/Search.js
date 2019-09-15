@@ -1,5 +1,5 @@
 import React from 'react';
-import { useImagesSearch } from '../../stores/Images';
+import { useImagesSearch } from '../../store';
 import Debounce from '../../../../utils/debounce';
 
 export default () => {
