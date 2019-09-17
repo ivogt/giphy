@@ -12,9 +12,9 @@ import Search from './components/Search';
 import PhotoCard from './components/PhotoCard';
 import ViewSwitcher from './components/ViewSwitcher';
 import InfiniteScroll from '../../components/InfiniteScroll';
-import './PhotosPage.scss';
+import './GifsPage.scss';
 
-const PhotosPage = ({ location , defaultQuery }) => {
+const GifsPage = ({ location , defaultQuery }) => {
   /* this page renders only once */
   return (
     <ViewToggleContainer isGlobal>
@@ -59,4 +59,4 @@ const PhotosPage = ({ location , defaultQuery }) => {
   );
 };
 
-export default PhotosPage;
+export default GifsPage;

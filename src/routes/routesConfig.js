@@ -1,6 +1,6 @@
 import React from 'react';
 import HomePage from '../pages/HomePage';
-import PhotosPage from '../pages/PhotosPage';
+import GifsPage from '../pages/GifsPage';
 
 export default {
   home: {
@@ -9,13 +9,13 @@ export default {
     exact: true
   },
   photos: {
-    path: '/photos',
-    component: props => <PhotosPage {...props} defaultQuery="kittens" />,
+    path: '/gifs',
+    component: props => <GifsPage {...props} defaultQuery="kittens" />,
     exact: true
   },
   photos2: {
-    path: '/another-photos',
-    component: props => <PhotosPage {...props} defaultQuery="puppies" />,
+    path: '/other-gifs',
+    component: props => <GifsPage {...props} defaultQuery="puppies" />,
     exact: true
   }
 };
