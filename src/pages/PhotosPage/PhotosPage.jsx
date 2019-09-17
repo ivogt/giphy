@@ -19,7 +19,7 @@ const PhotosPage = ({ location , defaultQuery }) => {
   return (
     <ViewToggleContainer isGlobal>
       {/* keeps state across pages */}
-      <ImagesContainer scope={`context-${location.pathname}`} query={defaultQuery }>
+      <ImagesContainer scope={`context-${location.pathname}`} query={defaultQuery}>
         {/* keeps state for scope */}
         <div className="hero">
           <h1 className="title">Giphy Photo Stream</h1>
