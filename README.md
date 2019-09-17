@@ -7,12 +7,12 @@ Giphy is a single page web application used to display animations from Giphy API
 ## Overview
 
 When thinking on the application's state management I've decided to
-preset you the `Sweet-state` for React. It overlaps all the Redux features [Actions,Subscribers,Selector] and extends with Containers & Hooks out-of-the-box.
+preset you the `Sweet-state` for React. It overs all of the Redux features [Actions,Subscribers,Selector,Stores, Middlewares] and extends with Containers & Hooks out-of-the-box.
 
 I've set two URLs _Gifs_ and _Other Gifs_ page which re-uses the GifsPage component , however you may notice how state of the *Display:[list/single] and Animation:[still/animate] (ViewToggle store)* is global while *Search (GiphyImages store)* is per page. This is achieved simply by setting the Containers scope.
 
 ```js
-//src/pages/PhotosPage.js (code omitted for brevity)
+//src/pages/GifsPage.js (code omitted for brevity)
 
 const GifsPage = ({ location , defaultQuery }) => {
 
