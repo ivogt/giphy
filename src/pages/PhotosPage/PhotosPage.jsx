@@ -14,13 +14,13 @@ import ViewSwitcher from './components/ViewSwitcher';
 import InfiniteScroll from '../../components/InfiniteScroll';
 import './PhotosPage.scss';
 
-const Home = ({ location , defaultQuery }) => {
+const PhotosPage = ({ location , defaultQuery }) => {
   /* this page renders only once */
   return (
     <ViewToggleContainer isGlobal>
-      {/* remembers state across pages */}
+      {/* keeps state across pages */}
       <ImagesContainer scope={`context-${location.pathname}`} query={defaultQuery }>
-        {/* remembers state for this page only */}
+        {/* keeps state for scope */}
         <div className="hero">
           <h1 className="title">Giphy Photo Stream</h1>
           <ViewSwitcher />
@@ -59,4 +59,4 @@ const Home = ({ location , defaultQuery }) => {
   );
 };
 
-export default Home;
+export default PhotosPage;
